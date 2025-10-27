@@ -18,19 +18,19 @@ export class PositionService {
     return await position;
   }
 
-//   async createPosition(data) {
-//     const positionExist = await this.prisma.position.findFirst({
-//       where: { name: data.name },
-//     });
+  async createPosition(data) {
+    // const positionExist = await this.prisma.position.findFirst({
+    //   where: { name: data.name },
+    // });
 
-//     if (positionExist) {
-//       throw new BadRequestException('Cette poste existe deja ');
-//     }
+    // if (positionExist) {
+    //   throw new BadRequestException('Cette poste existe deja ');
+    // }
 
-//     return await this.prisma.position.create({ data });
-//   }
+    return await this.prisma.position.create({ data });
+  }
 
-  async updatePosition(data, id: number) {
+  async updatePosition( id: number, data) {
     const position = await this.prisma.position.findUnique({
       where: { id },
     });
