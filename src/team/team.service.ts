@@ -1,6 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { NotFoundError } from 'rxjs';
 import { PrismaService } from 'src/prisma.service';
+import { CreateTeamDTO } from './dto/create-team.dto';
+import { UpdateTeamDTO } from './dto/update-team.dto';
 
 @Injectable()
 export class TeamService {
@@ -20,11 +22,11 @@ export class TeamService {
     return team;
   }
 
-  async createTeam(data: any) {
+  async createTeam(data: CreateTeamDTO) {
     return this.prisma.team.create({ data });
   }
 
-  async updateTeam(id: number, data: any) {
+  async updateTeam(id: number, data: UpdateTeamDTO) {
     const teamExist = await this.prisma.team.findUnique({
       where: { id },
     });
