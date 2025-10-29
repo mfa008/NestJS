@@ -9,7 +9,7 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [PositionModule, TeamModule, PlayerModule, AuthModule],
-  controllers: [AppController, AuthController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
